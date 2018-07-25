@@ -1,0 +1,11 @@
+[Unit]
+Description=Fan On/Off script
+
+[Service]
+User=root
+#ExecStart=/usr/share/fan/fan.sh
+ExecStart=/usr/share/fan/fan.py
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
