@@ -1,6 +1,6 @@
-# SBC Temperature control scripts using a 5V fan and Python/Bash
+# SBC temperature control scripts using a 5V fan and Python/Bash
 
-A couple of scripts I have created to control the temperature on my Raspberry Model 3B+ and Rock64 4GB model SBCs byautomatically starting a 5V fan when the temperature exceeds a specified threshold.
+A couple of scripts I've created to control the temperature on my Raspberry Model 3B+ and Rock64 4GB model SBCs by automatically starting a 5V fan when the temperature exceeds a specified threshold.
 
 ## Python Libraries
 
@@ -18,9 +18,9 @@ The above mentioned scripts use the [RPi.GPIO](https://pypi.org/project/RPi.GPIO
 
 **rock64-fan.py**<br>
 
- This python script uses the R64.GPIO library to start the fan, connected to BCM GPIO pin 16, when a certain temperature threshlod is reached. The temperature is monitored every 2 seconds by reading the '/etc/armbianmonitor/datasources/soctemp' file. When the temperature drops 15 degrees Celcius below the maxiumum threshold, the fan is automatically stopped. 
+ This python script uses the R64.GPIO library to start the fan, connected to BCM GPIO pin 16, when a certain temperature threshlod is reached. The temperature is monitored every 2 seconds by reading the '/etc/armbianmonitor/datasources/soctemp' file. When the temperature drops 15 degrees Celsius below the maxiumum threshold, the fan is automatically stopped. 
  The script also logs the start/stop of the fan along with the temperature in '/var/log/fan.log'
- Note: The script has been only tested on a[Armbian Xenial 5.42](https://www.armbian.com/rock64/) for Rock64.
+ Note: The script has been only tested on a [Armbian Xenial 5.42](https://www.armbian.com/rock64/) for Rock64.
 
 **rock64-fan.sh**<br>
 
