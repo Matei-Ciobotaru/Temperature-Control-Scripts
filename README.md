@@ -14,12 +14,22 @@ The above mentioned scripts use the [RPi.GPIO](https://pypi.org/project/RPi.GPIO
  Note: Use 'systemctl enable fan.service' to start the script at boot.
 
 
-## Rock64 (Armbian Xenial OS) scripts
+## Rock64 (Armbian OS) scripts
+
+**rock64-fan-pwm.py**<br>
+
+
+ This python script uses the R64.GPIO library to start the fan, connected to BCM GPIO pin 16, and control its speed using PWM based on the temperature reading. The temperature is monitored every 5 seconds by reading the '/etc/armbianmonitor/datasources/soctemp' file. When the temperature minimum threshold is met, the script runs at minimum speed, if the maximum threshold is met the fan will run at full blown speed, otherwise the fan speed is calculated using liniar interpolation.
+ The script also logs the start/stop operations of the fan, possible errors and a warning entry when the the temperature exceeds the maximum threshold in '/var/log/fan.log'
+
+ Note: The script has been only tested on [Armbian Buster OS](https://www.armbian.com/rock64/), using my version of the [Rock64-GPIO](https://github.com/Matei-Ciobotaru/Rock64-R64.GPIO) library.
+
 
 **rock64-fan.py**<br>
 
  This python script uses the R64.GPIO library to start the fan, connected to BCM GPIO pin 16, when a certain temperature threshlod is reached. The temperature is monitored every 2 seconds by reading the '/etc/armbianmonitor/datasources/soctemp' file. When the temperature drops 15 degrees Celsius below the maxiumum threshold, the fan is automatically stopped. 
  The script also logs the start/stop of the fan along with the temperature in '/var/log/fan.log'
+
  Note: The script has been only tested on a [Armbian Xenial 5.42](https://www.armbian.com/rock64/) for Rock64.
 
 **rock64-fan.sh**<br>
