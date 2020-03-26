@@ -112,8 +112,8 @@ def temp_ctrl(fan, old_temp, old_speed):
 
     if temp > MAX_TEMP:
         speed = 100  # Maximum temperature exceeded, max fan speed
-        logging.info('Temperature %s\'C exceeded maximum threshold '
-                     '(%s\'C), fan speed set to 100%%.', temp, MAX_TEMP)
+        logging.warning('Temperature %s\'C exceeded maximum threshold '
+                        '(%s\'C), fan speed set to 100%%.', temp, MAX_TEMP)
     elif temp < MIN_TEMP:
         speed = MIN_SPEED  # Minimum temperature reached, min fan speed
     else:
