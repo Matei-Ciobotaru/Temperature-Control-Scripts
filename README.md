@@ -10,8 +10,8 @@ The above mentioned scripts use the [RPi.GPIO](https://pypi.org/project/RPi.GPIO
 
 **fan.service**<br>
 
- A simple systemd service file to start/stop the fan script using 'systemctl'.
- Note: Use 'systemctl enable fan.service' to start the script at boot.
+ A simple systemd service file to start/stop the fan script using `systemd`.
+ Note: Use `systemctl enable fan.service` to start the script at boot.
 
 
 ## Rock64 (Armbian OS) scripts
