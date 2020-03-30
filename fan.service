@@ -1,10 +1,9 @@
 [Unit]
-Description=Fan On/Off script
+Description=Temperature control service
 
 [Service]
 User=root
-#ExecStart=/usr/share/fan/fan.sh
-ExecStart=/usr/share/fan/fan.py
+ExecStart=/usr/share/fan/fan_pwm.py
 KillSignal=SIGINT
 
 [Install]
