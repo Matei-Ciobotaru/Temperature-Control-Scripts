@@ -43,7 +43,7 @@ The above mentioned scripts use the [RPi.GPIO](https://pypi.org/project/RPi.GPIO
 
 **raspi_fan.py**<br>
 
- This python script uses the RPi.GPIO library to start the fan, connected to BCM GPIO pin 12, when a certain temperature threshlod is reached. The temperature is monitored every 2 seconds by reading the `/sys/class/thermal/thermal_zone0/temp` file. When the temperature drops 15 degrees Celcius below the maxiumum threshold, the fan is automatically stopped. The script also logs the start/stop of the fan along with the temperature in `/var/log/fan.log`
+ This python script uses the RPi.GPIO library to start the fan, connected to BCM GPIO pin 12, when a certain temperature threshlod is reached. The temperature is monitored every 2 seconds by reading the `/sys/class/thermal/thermal_zone0/temp` file. When the temperature drops 15 degrees Celsius below the maxiumum threshold, the fan is automatically stopped. The script also logs the start/stop of the fan along with the temperature in `/var/log/fan.log`
 
  Note: The script has been only tested on [Raspbian Strech Lite](https://www.raspberrypi.org/downloads/raspbian/).
 
