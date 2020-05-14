@@ -4,10 +4,11 @@
 
 """
 
- This script is used to start/start the fan
- when the CPU temperature threshold is reached.
+ This script is used to start/start the fan when
+ the configured temperature threshold is reached.
 
  Author: Matei Ciobotaru
+ Rock64 SBC implementation
 
 """
 
