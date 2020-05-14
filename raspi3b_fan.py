@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.7
 
 # -*- coding: utf-8 -*-
 
@@ -8,20 +8,13 @@
  when the CPU temperature threshold is reached.
 
  Author: Matei Ciobotaru
+ Raspberry 3B+ SBC implementation
 
 """
 
-import sys
 import logging
 from time import sleep
-
-
-try:
-    sys.path.append('/root/Rock64-R64.GPIO')
-    import R64.GPIO as GPIO
-except ImportError as err:
-    print('Could not import R64.GPIO module: %s' % err)
-    sys.exit(1)
+import RPi.GPIO as GPIO
 
 
 # Set up logging
@@ -31,12 +24,12 @@ logging.basicConfig(filename=LOG_FILE,
                     format='%(asctime)s [%(levelname)s]: %(message)s')
 
 # Fan switch is on BCM pin 18, change this value according to your setup
-PIN = 16
+PIN = 12
 
 # Maximum temperature threshold ['C] (fan will start)
 MAX_TEMP = 65
 # Mininum temperature threshold ['C] (fan swill stop)
-MIN_TEMP = 40
+MIN_TEMP = 45
 
 
 def setup(pin):
@@ -44,7 +37,7 @@ def setup(pin):
     Setup GPIO pin
     """
 
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
     GPIO.setup(pin, GPIO.OUT)
     GPIO.setwarnings(False)
 
@@ -55,8 +48,8 @@ def get_temp():
     """
 
     try:
-        with open('/etc/armbianmonitor/datasources/soctemp', 'r') as fhandle:
-            temp = int(fhandle.read())/1000
+        with open('/sys/class/thermal/thermal_zone0/temp', 'r') as fhandle:
+            temp = int(fhandle.read())/1000.0
             return round(temp, 1)
     except IOError as io_err:
         logging.error('Can\'t read temp file: %s', io_err)

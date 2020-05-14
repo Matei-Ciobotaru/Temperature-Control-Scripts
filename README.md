@@ -35,7 +35,7 @@ The above mentioned scripts use the [RPi.GPIO](https://pypi.org/project/RPi.GPIO
 
  Note: The script has been only tested on a [Armbian Xenial 5.42](https://www.armbian.com/rock64/) for Rock64.
 
-**rock64_fan.sh**<br>
+**rock64_fan.sh (deprecated)**<br>
 
  This bash script has the same function as the aforementioned python one and was used before editing the R64.GPIO python library to make it work on my kernel version.
 
